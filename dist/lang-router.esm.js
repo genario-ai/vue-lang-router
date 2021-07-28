@@ -257,11 +257,9 @@ function switchLanguage (to, from, next) {
 			if (preferredLang && translations[preferredLang]) { lang = preferredLang; }
 			else { lang = defaultLanguage; }
 		}
-		if (lang != defaultLanguage) {
-			var translatedPath = translatePath(to.path, lang);
-			translatedPath = '/' + lang + (translatedPath.charAt(0) != '/' ? '/' : '') + translatedPath;
-			return next({ path: translatedPath, query: to.query, hash: to.hash });
-		}
+		var translatedPath = translatePath(to.path, lang);
+		translatedPath = '/' + lang + (translatedPath.charAt(0) != '/' ? '/' : '') + translatedPath;
+		return next({ path: translatedPath, query: to.query, hash: to.hash });
 	}
 	loadLanguage(lang).then(function () {
 		return next();

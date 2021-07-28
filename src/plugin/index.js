@@ -217,17 +217,13 @@ function switchLanguage (to, from, next) {
 			else { lang = defaultLanguage; }
 		}
 
-		// If the language isn't default one, translate path and redirect to it
-		if (lang != defaultLanguage) {
+		// Translate path
+		let translatedPath = translatePath(to.path, lang);
 
-			// Translate path
-			let translatedPath = translatePath(to.path, lang);
+		// Add language prefix to the path
+		translatedPath = '/' + lang + (translatedPath.charAt(0) != '/' ? '/' : '') + translatedPath;
 
-			// Add language prefix to the path
-			translatedPath = '/' + lang + (translatedPath.charAt(0) != '/' ? '/' : '') + translatedPath;
-
-			return next({ path: translatedPath, query: to.query, hash: to.hash });
-		}
+		return next({ path: translatedPath, query: to.query, hash: to.hash });
 	}
 
 	// Load requested language
