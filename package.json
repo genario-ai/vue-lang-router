@@ -24,7 +24,7 @@
     "node-sass": "^6.0",
     "vue": "^3.0.5",
     "vue-i18n": "^9.0.0",
-    "vue-router": "^4.0.2"
+    "vue-router": "4"
   },
   "devDependencies": {
     "@intlify/vue-i18n-loader": "^2.0.3",
