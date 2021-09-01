@@ -1,5 +1,5 @@
 import { ref } from 'vue';
-import { createI18n } from 'vue-i18n';
+import { createI18n } from 'vue-i18n/dist/vue-i18n.esm-bundler.js';
 import { createRouter } from 'vue-router';
 
 import LocalizedLink from './components/LocalizedLink.vue';
