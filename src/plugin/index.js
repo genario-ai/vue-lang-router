@@ -223,12 +223,12 @@ function switchLanguage (to, from, next) {
 		// Add language prefix to the path
 		translatedPath = '/' + lang + (translatedPath.charAt(0) != '/' ? '/' : '') + translatedPath;
 
-		return next({ path: translatedPath, query: to.query, hash: to.hash });
+		return next({ path: translatedPath, query: to.query, hash: to.hash, replace: true });
 	}
 
 	// Load requested language
 	loadLanguage(lang).then(function () {
-		return next();
+		return next({ replace: true });
 	});
 }
 
